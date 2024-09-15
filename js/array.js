@@ -15,7 +15,7 @@ function get_surrounding(pos,dimensions){
     if(xlevel >= 1){
         surrounding.push(pos-1);
     }
-    if(xlevel<=(dimensions[0]-2) && xlevel>=1){
+    if(xlevel<=(dimensions[0]-2)){
         surrounding.push(pos+1);
     }
     if(ylevel<=(dimensions[1]+1)){

@@ -28,6 +28,9 @@ function game_frame(){
         return (n % 2) == 1
     }
     function pix(pixtype,pixnum){
+        if(pixnum==0){
+            console.log("hello")
+        }
         if(odd(pixnum)==true){
             pixnum = (pixcount-pixnum)
         }
