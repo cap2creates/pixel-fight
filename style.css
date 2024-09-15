@@ -1,0 +1,29 @@
+#container {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    background-color: rgb(75,75,75);
+    width: 400px;
+    height: 400px;
+    margin: auto;
+}
+#pixelcontainer {
+    display: grid;
+    grid-template-columns: repeat(80, 1fr);
+    grid-template-rows: repeat(80, 1fr);
+    border: solid 5px rgb(100,100,100);
+    width: 75%;
+    height: 75%;
+}
+#wintext {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+#header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}
