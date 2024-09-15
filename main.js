@@ -1,7 +1,7 @@
 // prob messy code, just started
 
 let array = [];
-let dimensions = [80,80];
+let dimensions = [100,100];
 let pixcount = dimensions[0]*dimensions[1]
 let gamerunning = null
 
@@ -63,4 +63,4 @@ function game_frame(){
     }
 }
 
-gamerunning = setInterval(game_frame,5)
+gamerunning = setInterval(game_frame,50)
