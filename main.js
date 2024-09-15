@@ -24,7 +24,13 @@ for(let i=0;i<(pixcount);i++){
 }
 
 function game_frame(){
+    function odd(n){
+        return (n % 2) == 1
+    }
     function pix(pixtype,pixnum){
+        if(odd(pixnum)==true){
+            pixnum = (pixcount-pixnum)
+        }
         // pixtype is the type of the pixel (1 or 2), its here so i can get the pixnum.
         const surrounding = get_surrounding(pixnum,dimensions);
         function surroundingpix(i){
@@ -52,6 +58,7 @@ function game_frame(){
             if(winner!=array[i]){
                 gameOver = false
             }
+            let pixnum = i;
             document.getElementById(`pixel${String(i)}`).style.backgroundColor = array[i]==1 && "rgb(0,0,255)" || "rgb(0,255,0)";
         }
     }
