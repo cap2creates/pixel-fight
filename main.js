@@ -16,7 +16,7 @@ function create_pixel(num){
     let pixel = document.createElement("div");
     pixel.id = `pixel${String(num)}`;
     document.getElementById("pixelcontainer").appendChild(pixel);
-    pixel.style.backgroundColor = array[num]==1 && "rgb(0,0,255)" || "rgb(0,255,0)";
+    pixel.style.backgroundColor = array[num]==1 ? "rgb(0,0,255)" : "rgb(0,255,0)";
     return pixel;
 }
 for(let i=0;i<(pixcount);i++){
@@ -27,29 +27,21 @@ function game_frame(){
     function odd(n){
         return (n % 2) == 1
     }
-    function pix(pixtype,pixnum){
-        if(pixnum==0){
-            console.log("hello")
-        }
-        if(odd(pixnum)==true){
-            pixnum = (pixcount-pixnum)
+    function pix(pixtype,pixnum,thing){
+        if(thing==true){
+            const newpix = pixcount-pixnum
+            pix(array[newpix],newpix,false)
         }
         // pixtype is the type of the pixel (1 or 2), its here so i can get the pixnum.
         const surrounding = get_surrounding(pixnum,dimensions);
         function surroundingpix(i){
-            if(!i){
-                return
-            } else if(i<(pixcount)) {
-                if(array[i]!=array[pixnum]){
-                    const defeat = Math.floor(Math.random() * 3)
-                    if(defeat==1){
+            if(i !== undefined && i < pixcount){
+                if(array[i] !== array[pixnum]){
+                    let defeat = Math.floor(Math.random() * 20)
+                    if(defeat == 1){
                         array[i] = array[pixnum]
                     }
-                }  else {
-                    return
                 }
-            } else {
-                return
             }
         }
         surrounding.forEach(surroundingpix)
@@ -61,16 +53,18 @@ function game_frame(){
             if(winner!=array[i]){
                 gameOver = false
             }
-            let pixnum = i;
             document.getElementById(`pixel${String(i)}`).style.backgroundColor = array[i]==1 && "rgb(0,0,255)" || "rgb(0,255,0)";
         }
     }
-    array.forEach(pix)
+    //array.forEach(pix)
+    for(let i=0;i<pixcount/2;i++){
+        pix(array[i],i,true)
+    }
     updatepixels()
     if(gameOver==true){
         clearInterval(gamerunning)
-        document.getElementById("wintext").textContent = (winner == 1 && "Blue won!" || "Green won!")
+        document.getElementById("wintext").textContent = (winner == 1 ? "Blue won!" : "Green won!")
     }
 }
 
-gamerunning = setInterval(game_frame,50)
+gamerunning = setInterval(game_frame,1)

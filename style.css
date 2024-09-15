@@ -3,8 +3,8 @@
     justify-items: center;
     align-items: center;
     background-color: rgb(75,75,75);
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
     margin: auto;
 }
 #pixelcontainer {
@@ -12,8 +12,8 @@
     grid-template-columns: repeat(100, 1fr);
     grid-template-rows: repeat(100, 1fr);
     border: solid 5px rgb(100,100,100);
-    width: 75%;
-    height: 75%;
+    width: 85%;
+    height: 85%;
 }
 #wintext {
     display: flex;
