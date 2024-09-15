@@ -9,16 +9,16 @@ function get_surrounding(pos,dimensions){
     }
     const ylevel = get_y_level(pos);
     const xlevel = get_x_level(pos);
-    if(ylevel>0){
+    if(ylevel>=1){
         surrounding.push(pos-dimensions[1]);
     }
-    if(xlevel >= 0){
+    if(xlevel >= 1){
         surrounding.push(pos-1);
     }
-    if(xlevel<dimensions[0] && xlevel>0){
+    if(xlevel<=(dimensions[0]-2) && xlevel>=1){
         surrounding.push(pos+1);
     }
-    if(ylevel<dimensions[1]){
+    if(ylevel<=(dimensions[1]+1)){
         surrounding.push(pos+dimensions[1]);
     }
     return surrounding;

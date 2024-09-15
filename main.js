@@ -66,7 +66,7 @@ function game_frame(){
     updatepixels()
     if(gameOver==true){
         clearInterval(gamerunning)
-        document.getElementById("wintext").textContent = (winner == 1 && "Blue won!" || "Green won!") + " Reload to restart (blue wins easier, fixing later!)"
+        document.getElementById("wintext").textContent = (winner == 1 && "Blue won!" || "Green won!")
     }
 }
 
